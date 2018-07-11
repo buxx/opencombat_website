@@ -9,4 +9,4 @@ weight = 10
 
 # Install OpenCombat
 
-OpenCombat is a game in development mode, installation require some work.
+OpenCombat is a game in development mode, installation require some work. For now, please follow [README instructions](https://github.com/buxx/OpenCombat/blob/master/README.md).
