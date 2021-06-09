@@ -1,0 +1,99 @@
+{% import "_macros.html" as macros %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{{ config.title }}{% endblock title %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% include "_variables.html" %}
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/normalize.css">
+    <link rel="stylesheet" href="/juice.css">
+    {% block head %}
+    {% endblock head %}
+</head>
+
+<body>
+    {% block header %}
+
+    <header class="pos-absolute" style="background-color: transparent">
+        {{ macros::render_header() }}
+    </header>
+
+    <div class="hero">
+        {% block hero %}
+        <section class="text-center intro-text">
+            <img class="hero-image" src="OpenCombatLogo.png" alt="OpenCombat banner" style="width: 100%; height: auto;"/>
+            <h1 class="heading-text" style="font-size: 50px">
+                WW2 real-time tactical game
+            </h1>
+            <h3 class="title-text">
+                Open Combat is a <b>Free & Open source</b> ww2 real-time tactical game.
+            </h3>
+        </section>
+        <iframe class="hero-image hide-max-768" width="560" height="450" src="https://www.youtube.com/embed/pxVgjBKXlIw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        {% endblock hero %}
+    </div>
+
+    <div class="show-min-768">
+        <iframe class="hero-image" width="100%" height="300" src="https://www.youtube.com/embed/pxVgjBKXlIw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    {% endblock header %}
+
+    <main>
+        <div class="content text">
+            {% block content %}
+            {{ section.content | safe }}
+            {% endblock content %}
+        </div>
+
+        {% block sidebar %}
+        {% endblock %}
+    </main>
+
+    {% block footer %}
+    <footer>
+        <small class="subtext">
+            See other projects at <a href="https://bux.fr">bux.fr</a>
+        </small>
+    </footer>
+    {% endblock footer %}
+</body>
+<script>
+    function highlightNav(heading) {
+        let pathname = location.pathname;
+        document.querySelectorAll(".toc a").forEach((item) => {
+            item.classList.remove("active");
+        });
+        document.querySelector(".toc a[href$='" + pathname + "#" + heading + "']").classList.add("active");
+    }
+
+    let currentHeading = "";
+    window.onscroll = function () {
+        let h = document.querySelectorAll("h1,h2,h3,h4,h5,h6");
+        let elementArr = [];
+
+        h.forEach(item => {
+            if (item.id !== "") {
+                elementArr[item.id] = item.getBoundingClientRect().top;
+            }
+        });
+        elementArr.sort();
+        for (let key in elementArr) {
+            if (!elementArr.hasOwnProperty(key)) {
+                continue;
+            }
+            if (elementArr[key] > 0 && elementArr[key] < 300) {
+                if (currentHeading !== key) {
+                    highlightNav(key);
+                    currentHeading = key;
+                }
+                break;
+            }
+        }
+    }
+</script>
+
+</html>

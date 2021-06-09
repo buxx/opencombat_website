@@ -1,10 +1,7 @@
 +++
-title = "Participate to the project"
-menuTitle = "Participate"
-pre = "<i class='fa fa-group'></i> "
-chapter = true
-date =  2018-07-11T10:54:38+02:00
-weight = 15
+title = "Get involved"
+description = "Get involved"
+weight = 2
 +++
 
 # Participate to the project
@@ -24,3 +21,9 @@ There is many way to participate to the project:
 * Campain creation
 * Historical team compositions, weapon, etc reproductions
 * Game development
+
+Contact us by using one of:
+
+* Mailing-list: `opencombat-dev@framalistes.org` [Subscribe here](https://framalistes.org/sympa/subscribe/opencombat-dev)
+* Forum: [https://discourse.opencombat.bux.fr](https://discourse.opencombat.bux.fr/.)
+* Discord: [https://discord.gg/YD2V7XsBQZ](https://discord.gg/YD2V7XsBQZ)
